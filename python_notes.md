@@ -6,7 +6,29 @@ The source material can be found here:
 
 https://www.freecodecamp.org/learn/full-stack-developer
 
-## Basics
+## Table of Contents
+
+1. Python Basics
+    1. What is Python and what are some common uses in the industry
+    2. Variables
+        1. Data Types
+        2. Immutable Data Types
+        3. Determining Data Types
+        4. Data Hints
+    2. `print()` Function
+    3. Working with Strings
+        1. Multiline Strings
+        2. Strings Containing Quotation Marks
+        3. String Concatenation
+        4. F-Strings
+        5. Indexing
+        6. String Slicing
+        7. `in` Operator
+    4. Common String Methods
+    5. Working with Integers and Floats
+2. (WIP)
+
+## Python Basics
 
 ### What is Python and what are some common uses in the industry?
 
@@ -34,6 +56,8 @@ When naming variables in Python, there are some important rules you should keep 
 > - Variable names are case-sensitive — `age`, `Age`, and `AGE` are all considered unique.
 > - Variable names cannot be one of Python's reserved keywords such as `if`, `class`, or `def`.
 
+#### Data Types
+
 Python is a *dynamically-typed language* like JavaScript, meaning you don't need to explicitly declare types for variables. The language knows what data type a variable is based on what you assign to it.
 
 The most common data types used in Python include:
@@ -50,7 +74,11 @@ The most common data types used in Python include:
 > - **List:** An ordered collection of elements that supports different data types
 > - **None:** A special value that represents the absense of a value
 
-**Immutable** data types can't be modified or altered once they're declared. You can point their variables at something new, which is called reassignment, but you can't change the original object itself by adding, removing, or replacing any of its elements. Examples of immutable data types in Python are *string*, *integer*, *float*, *boolean*, *tuple*, and *range*.
+#### Immutable Data Types
+
+Immutable data types can't be modified or altered once they're declared. You can point their variables at something new, which is called reassignment, but you can't change the original object itself by adding, removing, or replacing any of its elements. Examples of immutable data types in Python are *string*, *integer*, *float*, *boolean*, *tuple*, and *range*.
+
+#### Determining Data Types
 
 To get the data type of a variable, you can use the `type()` function:
 
@@ -67,6 +95,8 @@ Another way to check the type of a variable is to use the built-in `isinstance()
 isinstance('Hello world', str) # True
 ```
 
+#### Data Hints
+
 Although Python is dynamically typed, you can still add type hints. These are optional signals that tell other developers what the data type of a variable or function is expected to be. Here's an example:
 
 ```python
@@ -81,7 +111,7 @@ print(greet(user_name, user_age)) # Hello, John Doe, age 24.
 
 Note that, unlike TypeScript which enforces types at compile time, Python just uses these hints for static analysis, documentation, and editor support, not for enforcing types during runtime. This can help developers catch bugs early and improve code readability, especially in large projects.
 
-### Print Function
+### `print()` Function
 
 There's a lot more to the `print` function than first meets the eye. There are four other arguments you can pass to it, so here's the full syntax of the function.
 
@@ -97,6 +127,270 @@ print(*objects sep=' ', end='\n', file=sys.stdout, flush=False)
 
 ### Working with Strings
 
+#### Multiline Strings
+
+If you need a multi-line string, you can use triple double quotes or single quotes:
+
+```python
+my_str = """Multiline
+string"""
+```
+
+#### Strings Containing Quotation Marks
+
+If your string contains either single or double quotation marks, then you have two options:
+
+- Use the opposite kind of quotes. That is, if your string contains single quotes, use double quotes to wrap the string, and vice versa:
+
+    ```python
+    msg = "It's a sunny day"
+    quote = 'She said, "Hello World!"'
+    ```
+
+- Escape the single or double quotation mark in the string with a backslash (`\`). With this method, you can use either single or double quotation marks to wrap the string itself:
+
+    ```python
+    msg = 'It\'s a sunny day'
+    quote = "She said, \"Hello!\""
+    ```
+
+#### String Concatenation
+
+You can also combine multiple strings together with the plus (`+`) operator. This process is called string concatenation. Here's how to concatenate two strings with the plus operator:
+
+```python
+my_str_1 = 'Hello'
+my_str_2 = "World"
+
+str_plus_str = my_str_1 + ' ' + my_str_2
+print(str_plus_str) # Hello World
+```
+
+> But note that this only works with strings. If you try to concatenate a string with a number, you'll get a `TypeError`.
+
+You can also use the augmented assignment operator for concatenation. This is represented by a plus and equals sign (`+=`), and performs both concatenation and assignment in one step.
+
+#### F-Strings
+
+F-strings start with `f` (either lowercase or uppercase) before the quotes, and allow you to embed variables or expressions inside replacement fields indicated by curly braces (`{}`). Here's an example:
+
+```python
+name = 'John Doe'
+age = 26
+name_and_age = f'My name is {name} and I am {age} years old'
+print(name_and_age) # My name is John Doe and I am 26 years old
+
+num1 = 5
+num2 = 10
+print(f'The sum of {num1} and {num2} is {num1 + num2}') # The sum of 5 and 10 is 15
+```
+
+#### Indexing
+
+Now that you've learned about string concatenation and f-strings, let's look at how you can get the length of a string and work with the individual characters in a string, a process called indexing. To get the length of a string, you can use the built-in `len()` function. Here's an example:
+
+```python
+my_str = 'Hello world'
+print(len(my_str))  # 11
+```
+
+Now onto indexing. Each character in a string has a position called an index. The index is zero-based, meaning that the index of the first character of a string is 0, the index of the second character is `1`, and so on. To access a character by its index, you use square brackets (`[]`) with the index of the character you want to access inside. Here are some examples:
+
+```python
+my_str = "Hello world"
+
+print(my_str[0])  # H
+print(my_str[6])  # w
+```
+
+Negative indexing is also allowed, so you can get the last character of any string with `-1`, the second-to-last character with `-2`, and so on.
+
+#### String Slicing
+
+Now that you're familiar with indexing, let's take things a bit further with string slicing. String slicing lets you extract a portion of a string or work with only a specific part of it. Here's the basic syntax:
+
+```python
+string[start:stop]
+```
+
+If you want to extract characters from a certain index to another, you just separate the `start` and `stop` indices with a colon:
+
+```python
+my_str = 'Hello world'
+print(my_str[1:4]) # ell
+```
+
+Apart from the `start` and `stop` indices, there's also an optional `step` parameter, which is used to specify the increment between each index in the slice.
+
+Here's the syntax for that:
+
+```python
+string[start:stop:step]
+```
+
+In the example below, the slicing starts at index `0`, stops before `11`, and extracts every second character:
+
+```python
+my_str = 'Hello world'
+print(my_str[0:11:2])  # Hlowrd
+```
+
+A helpful trick you can do with the step parameter is to reverse a string by setting step to `-1`, and leaving `start` and `stop` blank:
+
+```python
+my_str = 'Hello world'
+print(my_str[::-1]) # dlrow olleH
+```
+
+#### `in` Operator
+
+It can also be helpful to check if a character or set of characters exist in a string before slicing it. To do that, Python provides the `in` operator, which returns a boolean that specifies whether the character or characters exist in the string or not.
+
+Here are some examples:
+
+```python
+my_str = 'Hello world'
+
+print('Hello' in my_str)  # True
+print('hey' in my_str)    # False
+print('hi' in my_str)    # False
+print('e' in my_str)  # True
+print('f' in my_str)  # False
+```
+
+### Common String Methods
+
+Python provides a number of built-in methods that make working with strings a breeze. They include, but are not limited to, the following:
+
+- `upper()`: Returns a new string with all characters converted to uppercase.
+
+    ```python
+    my_str = 'hello world'
+
+    uppercase_my_str = my_str.upper()
+    print(uppercase_my_str)  # HELLO WORLD
+    ```
+
+- `lower()`: Returns a new string with all characters converted to lowercase.
+
+    ```python
+    my_str = 'Hello World'
+
+    lowercase_my_str = my_str.lower()
+    print(lowercase_my_str)  # hello world
+    ```
+
+- `strip()`: Returns a new string with the specified leading and trailing characters removed. If no argument is passed it removes leading and trailing whitespace.
+
+    ```python
+    my_str = '  hello world  '
+
+    trimmed_my_str = my_str.strip()
+    print(trimmed_my_str)  # "hello world"
+    ```
+
+- `replace(old, new)`: Returns a new string with all occurrences of `old` replaced by `new`.
+    
+    ```python
+    my_str = 'hello world'
+
+    replaced_my_str = my_str.replace('hello', 'hi')
+    print(replaced_my_str)  # hi world
+    ```
+
+- `split(separator)`: Splits a string on a specified separator into a list of strings. If no separator is specified, it splits on whitespace.
+
+    ```python
+    my_str = 'hello world'
+
+    split_words = my_str.split()
+    print(split_words)  # ['hello', 'world']
+    ```
+
+- `join(iterable)`: Joins elements of an iterable into a string with a separator.
+
+    ```python
+    my_list = ['hello', 'world']
+
+    joined_my_str = ' '.join(my_list)
+    print(joined_my_str)  # hello world
+    ```
+
+- `startswith(prefix)`: Returns a boolean indicating if a string starts with the specified prefix.
+
+    ```python
+    my_str = 'hello world'
+
+    starts_with_hello = my_str.startswith('hello')
+    print(starts_with_hello)  # True
+    ```
+
+- `endswith(suffix)`: Returns a boolean indicating if a string 
+ends with the specified suffix.
+
+    ```python
+    my_str = 'hello world'
+
+    ends_with_world = my_str.endswith('world')
+    print(ends_with_world)  # True
+    ```
+
+- `find(substring)`: Returns the index of the first occurrence of substring, or -1 if it doesn't find one.
+
+    ```python
+    my_str = 'hello world'
+
+    world_index = my_str.find('world')
+    print(world_index)  # 6
+    ```
+
+- `count(substring)`: Returns the number of times a substring appears in a string.
+
+    ```python
+    my_str = 'hello world'
+
+    o_count = my_str.count('o')
+    print(o_count)  # 2
+    ```
+
+- `capitalize()`: Returns a new string with the first character capitalized and the other characters lowercased.
+    
+    ```python
+    my_str = 'hello world'
+
+    capitalized_my_str = my_str.capitalize()
+    print(capitalized_my_str)  # Hello world
+    ```
+
+- `isupper()`: Returns `True` if all letters in the string are uppercase and `False` if not.
+    
+    ```python
+    my_str = 'hello world'
+
+    is_all_upper = my_str.isupper()
+    print(is_all_upper)  # False
+    ```
+
+- `islower()`: Returns `True` if all letters in the string are lowercase and `False` if not.
+    
+    ```python
+    my_str = 'hello world'
+
+    is_all_lower = my_str.islower()
+    print(is_all_lower)  # True
+    ```
+
+- `title()`: Returns a new string with the first letter of each word capitalized.
+
+    ```python
+    my_str = 'hello world'
+
+    title_case_my_str = my_str.title()
+    print(title_case_my_str)  # Hello World
+    ```
+
+### Working with Integers and Floats
+
 
 
 ## Loops and Sequences
@@ -107,7 +401,7 @@ print(*objects sep=' ', end='\n', file=sys.stdout, flush=False)
 
 ## Classes and Objects
 
-## Object-Oriented Programmong (OOP)
+## Object-Oriented Programming (OOP)
 
 ## Linear Data Structures
 
@@ -119,4 +413,4 @@ print(*objects sep=' ', end='\n', file=sys.stdout, flush=False)
 
 # References
 
-*Certified Full Stack Developer Curriculum*. freecodecamp.org. (n.d.). https://www.freecodecamp.org/learn/full-stack-developer/ 
+*Certified Full Stack Developer Curriculum*. freecodecamp.org. (n.d.). https://www.freecodecamp.org/learn/full-stack-developer/
