@@ -32,6 +32,9 @@ The source material can be found here:
         4. Converting Between Integers and Floats
         5. Common Methods
     7. Augmented Assignments
+        1. Introduction and Syntax
+        2. Common Augmented Assignment Operators
+    8. Functions
 2. (WIP)
 
 ## Python Basics
@@ -268,131 +271,131 @@ print('f' in my_str)  # False
 
 Python provides a number of built-in methods that make working with strings a breeze. They include, but are not limited to, the following:
 
-- `upper()`: Returns a new string with all characters converted to uppercase.
+> - `upper()`: Returns a new string with all characters converted to uppercase.
 
-    ```python
-    my_str = 'hello world'
+```python
+my_str = 'hello world'
 
-    uppercase_my_str = my_str.upper()
-    print(uppercase_my_str)  # HELLO WORLD
-    ```
+uppercase_my_str = my_str.upper()
+print(uppercase_my_str)  # HELLO WORLD
+```
 
-- `lower()`: Returns a new string with all characters converted to lowercase.
+> - `lower()`: Returns a new string with all characters converted to lowercase.
 
-    ```python
-    my_str = 'Hello World'
+```python
+my_str = 'Hello World'
 
-    lowercase_my_str = my_str.lower()
-    print(lowercase_my_str)  # hello world
-    ```
+lowercase_my_str = my_str.lower()
+print(lowercase_my_str)  # hello world
+```
 
-- `strip()`: Returns a new string with the specified leading and trailing characters removed. If no argument is passed it removes leading and trailing whitespace.
+> - `strip()`: Returns a new string with the specified leading and trailing characters removed. If no argument is passed it removes leading and trailing whitespace.
 
-    ```python
-    my_str = '  hello world  '
+```python
+my_str = '  hello world  '
 
-    trimmed_my_str = my_str.strip()
-    print(trimmed_my_str)  # "hello world"
-    ```
+trimmed_my_str = my_str.strip()
+print(trimmed_my_str)  # "hello world"
+```
 
-- `replace(old, new)`: Returns a new string with all occurrences of `old` replaced by `new`.
+> - `replace(old, new)`: Returns a new string with all occurrences of `old` replaced by `new`.
 
-    ```python
-    my_str = 'hello world'
+```python
+my_str = 'hello world'
 
-    replaced_my_str = my_str.replace('hello', 'hi')
-    print(replaced_my_str)  # hi world
-    ```
+replaced_my_str = my_str.replace('hello', 'hi')
+print(replaced_my_str)  # hi world
+```
 
-- `split(separator)`: Splits a string on a specified separator into a list of strings. If no separator is specified, it splits on whitespace.
+> - `split(separator)`: Splits a string on a specified separator into a list of strings. If no separator is specified, it splits on whitespace.
 
-    ```python
-    my_str = 'hello world'
+```python
+my_str = 'hello world'
 
-    split_words = my_str.split()
-    print(split_words)  # ['hello', 'world']
-    ```
+split_words = my_str.split()
+print(split_words)  # ['hello', 'world']
+```
 
-- `join(iterable)`: Joins elements of an iterable into a string with a separator.
+> - `join(iterable)`: Joins elements of an iterable into a string with a separator.
 
-    ```python
-    my_list = ['hello', 'world']
+```python
+my_list = ['hello', 'world']
 
-    joined_my_str = ' '.join(my_list)
-    print(joined_my_str)  # hello world
-    ```
+joined_my_str = ' '.join(my_list)
+print(joined_my_str)  # hello world
+```
 
-- `startswith(prefix)`: Returns a boolean indicating if a string starts with the specified prefix.
+> - `startswith(prefix)`: Returns a boolean indicating if a string starts with the specified prefix.
 
-    ```python
-    my_str = 'hello world'
+```python
+my_str = 'hello world'
 
-    starts_with_hello = my_str.startswith('hello')
-    print(starts_with_hello)  # True
-    ```
+starts_with_hello = my_str.startswith('hello')
+print(starts_with_hello)  # True
+```
 
-- `endswith(suffix)`: Returns a boolean indicating if a string ends with the specified suffix.
+> - `endswith(suffix)`: Returns a boolean indicating if a string ends with the specified suffix.
 
-    ```python
-    my_str = 'hello world'
+```python
+my_str = 'hello world'
 
-    ends_with_world = my_str.endswith('world')
-    print(ends_with_world)  # True
-    ```
+ends_with_world = my_str.endswith('world')
+print(ends_with_world)  # True
+```
 
-- `find(substring)`: Returns the index of the first occurrence of substring, or -1 if it doesn't find one.
+> - `find(substring)`: Returns the index of the first occurrence of substring, or -1 if it doesn't find one.
 
-    ```python
-    my_str = 'hello world'
+```python
+my_str = 'hello world'
 
-    world_index = my_str.find('world')
-    print(world_index)  # 6
-    ```
+world_index = my_str.find('world')
+print(world_index)  # 6
+```
 
-- `count(substring)`: Returns the number of times a substring appears in a string.
+> - `count(substring)`: Returns the number of times a substring appears in a string.
 
-    ```python
-    my_str = 'hello world'
+```python
+my_str = 'hello world'
 
-    o_count = my_str.count('o')
-    print(o_count)  # 2
-    ```
+o_count = my_str.count('o')
+print(o_count)  # 2
+```
 
-- `capitalize()`: Returns a new string with the first character capitalized and the other characters lowercased.
+> - `capitalize()`: Returns a new string with the first character capitalized and the other characters lowercased.
 
-    ```python
-    my_str = 'hello world'
+```python
+my_str = 'hello world'
 
-    capitalized_my_str = my_str.capitalize()
-    print(capitalized_my_str)  # Hello world
-    ```
+capitalized_my_str = my_str.capitalize()
+print(capitalized_my_str)  # Hello world
+```
 
-- `isupper()`: Returns `True` if all letters in the string are uppercase and `False` if not.
+> - `isupper()`: Returns `True` if all letters in the string are uppercase and `False` if not.
 
-    ```python
-    my_str = 'hello world'
+```python
+my_str = 'hello world'
 
-    is_all_upper = my_str.isupper()
-    print(is_all_upper)  # False
-    ```
+is_all_upper = my_str.isupper()
+print(is_all_upper)  # False
+```
 
-- `islower()`: Returns `True` if all letters in the string are lowercase and `False` if not.
+> - `islower()`: Returns `True` if all letters in the string are lowercase and `False` if not.
 
-    ```python
-    my_str = 'hello world'
+```python
+my_str = 'hello world'
 
-    is_all_lower = my_str.islower()
-    print(is_all_lower)  # True
-    ```
+is_all_lower = my_str.islower()
+print(is_all_lower)  # True
+```
 
-- `title()`: Returns a new string with the first letter of each word capitalized.
+> - `title()`: Returns a new string with the first letter of each word capitalized.
 
-    ```python
-    my_str = 'hello world'
+```python
+my_str = 'hello world'
 
-    title_case_my_str = my_str.title()
-    print(title_case_my_str)  # Hello World
-    ```
+title_case_my_str = my_str.title()
+print(title_case_my_str)  # Hello World
+```
 
 ### Working with Integers and Floats
 
@@ -531,7 +534,7 @@ hex_representation = hex(my_int)
 print(hex_representation) # 0x38
 ```
 
->- pow(): raises a number to the power of another or performs modular exponentiation.
+>- `pow()`: raises a number to the power of another or performs modular exponentiation.
 
 ```python
 result_1 = pow(2, 3)  # Equivalent to 2 ** 3
@@ -542,6 +545,97 @@ print(result_2)  # 3
 ```
 
 ### Augmented Assignments
+
+#### Introduction and Syntax
+
+Augmented assignment combines a binary operation with an assignment in one step. It takes a variable, applies an operation to it with another value, and stores the result back into the same variable.
+
+If you're familiar with a language like JavaScript, you've probably heard of the addition assignment operator (`+=`) or subtraction assignment (`-=`), and others. Those exist in Python, too. The only difference is that they're referred to as augmented assignments.
+
+The basic syntax of an augmented assignment looks like this:
+
+```python
+variable <operator>= value
+```
+
+Which is a more efficient way of doing this:
+
+```python
+variable = variable <operator> value
+```
+
+For example, here's an example of using augmented assignment to add `5` to an existing variable:
+
+```python
+my_var = 10
+my_var += 5
+
+print(my_var) # 15
+```
+
+The advantage of augmented assignment is that it provides a concise and readable way to update a variable value without repeating the variable name. In turn, this reduces redundancy and potential errors that might arise from a typo or something similar.
+
+#### Common Augmented Assignment Operators
+
+Every operator can use an augmented assignment. We've looked at the addition assignment operator (`+=`), so let's look at others.
+
+The subtraction assignment operator (`-=`) subtracts the right operand from the left variable and stores the difference in the left variable:
+
+```python
+count = 14
+count -= 3
+
+print(count) # 11
+```
+
+The multiplication assignment operator (`*=`) multiplies the left variable by the right operand and stores the product back in the left variable:
+
+```python
+product = 65
+product *= 7
+
+print(product) # 455
+```
+
+The division assignment operator (`/=`) divides the left variable by the right and stores the result back in the left variable:
+
+```python
+price = 100
+price /= 4
+
+print(price) # 25.0
+```
+
+The floor division operator (`//=`) floor‑divides the left variable by the right and stores the result back in the left variable:
+
+```python
+total_pages = 23
+total_pages //= 5
+
+print(total_pages) # 4
+```
+
+The modulus assignment operator (`%=`) computes the remainder of the left variable divided by the right and stores it back in the left variable:
+
+```python
+bits = 35
+bits %= 2
+
+print(bits) # 1
+```
+
+The exponentiation assignment operator (`**=`) raises the left variable to the power of the right and stores the result back in the left variable:
+
+```python
+power = 2
+power **= 3
+
+print(power) # 8
+```
+
+There are other augmented assignment operators too, like those for bitwise operators. They include `&=`, `^=`, `>>=`, and `<<=`.
+
+### Functions
 
 (WIP)
 
