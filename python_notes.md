@@ -4,7 +4,7 @@
 
 The source material can be found here:
 
-https://www.freecodecamp.org/learn/full-stack-developer
+<https://www.freecodecamp.org/learn/full-stack-developer>
 
 ## Table of Contents
 
@@ -15,8 +15,8 @@ https://www.freecodecamp.org/learn/full-stack-developer
         2. Immutable Data Types
         3. Determining Data Types
         4. Data Hints
-    2. `print()` Function
-    3. Working with Strings
+    3. `print()` Function
+    4. Working with Strings
         1. Multiline Strings
         2. Strings Containing Quotation Marks
         3. String Concatenation
@@ -24,8 +24,14 @@ https://www.freecodecamp.org/learn/full-stack-developer
         5. Indexing
         6. String Slicing
         7. `in` Operator
-    4. Common String Methods
-    5. Working with Integers and Floats
+    5. Common String Methods
+    6. Working with Integers and Floats
+        1. Basic Arithmetic Operators
+        2. Combining Integers and Floats
+        3. Other Common Operators
+        4. Converting Between Integers and Floats
+        5. Common Methods
+    7. Augmented Assignments
 2. (WIP)
 
 ## Python Basics
@@ -290,7 +296,7 @@ Python provides a number of built-in methods that make working with strings a br
     ```
 
 - `replace(old, new)`: Returns a new string with all occurrences of `old` replaced by `new`.
-    
+
     ```python
     my_str = 'hello world'
 
@@ -325,8 +331,7 @@ Python provides a number of built-in methods that make working with strings a br
     print(starts_with_hello)  # True
     ```
 
-- `endswith(suffix)`: Returns a boolean indicating if a string 
-ends with the specified suffix.
+- `endswith(suffix)`: Returns a boolean indicating if a string ends with the specified suffix.
 
     ```python
     my_str = 'hello world'
@@ -354,7 +359,7 @@ ends with the specified suffix.
     ```
 
 - `capitalize()`: Returns a new string with the first character capitalized and the other characters lowercased.
-    
+
     ```python
     my_str = 'hello world'
 
@@ -363,7 +368,7 @@ ends with the specified suffix.
     ```
 
 - `isupper()`: Returns `True` if all letters in the string are uppercase and `False` if not.
-    
+
     ```python
     my_str = 'hello world'
 
@@ -372,7 +377,7 @@ ends with the specified suffix.
     ```
 
 - `islower()`: Returns `True` if all letters in the string are lowercase and `False` if not.
-    
+
     ```python
     my_str = 'hello world'
 
@@ -391,7 +396,154 @@ ends with the specified suffix.
 
 ### Working with Integers and Floats
 
+#### Basic Arithmetic Operators
 
+Common operators for integers and floats include:
+
+> - Addition: `+`
+> - Subtraction: `-`
+> - Multiplication: `*`
+> - Division: `/`
+
+#### Combining Integers and Floats
+
+If you add an integer and a float, the result is automatically converted to a float:
+
+```python
+my_int = 56
+my_float = 5.4
+
+sum_int_and_float = my_int + my_float
+
+print(sum_int_and_float) # 61.4
+print(type(sum_int_and_float)) # <class 'float'>
+```
+
+This is true for other basic arithmetic operations, too, like subtraction, multiplication, and division. If you mix integers and floats, Python will return a float as the result.
+
+You can also perform more complex arithmetic calculations such as getting the remainder of two numbers with the modulo operator, floor division, and exponentiation with both integers and floats.
+
+#### Other Operators
+
+The modulo operator (`%`) returns the remainder when the value on the left is divided by the value on the right:
+
+```python
+my_int_1 = 56
+my_int_2 = 12
+
+my_float_1 = 5.4
+my_float_2 = 12.0
+
+mod_ints = my_int_1 % my_int_2
+mod_floats = my_float_2 % my_float_1
+
+print('Integer Modulus:', mod_ints) # Integer Modulus: 8
+print('Float Modulus:', mod_floats) # Float Modulus: 1.1999999999999993
+```
+
+Floor division divides two numbers and rounds down the result to the nearest whole number. This is done with the double forward slash operator (`//`):
+
+```python
+my_int_1 = 56
+my_int_2 = 12
+
+my_float_1 = 5.4
+my_float_2 = 12.0
+
+floor_div_ints = my_int_1 // my_int_2
+floor_div_floats = my_float_2 // my_float_1
+
+print('Integer Floor Division:', floor_div_ints) # Integer Floor Division: 4
+print('Float Floor Division:', floor_div_floats) # Float Floor Division: 2.0
+```
+
+Exponentiation raises a number to the power of another, and is done with the double asterisk operator (`**`):
+
+```python
+my_int_1 = 56
+my_int_2 = 12
+
+my_float_1 = 5.4
+my_float_2 = 12.0
+
+exp_ints = my_int_1 ** my_int_2
+exp_floats = my_float_1 ** my_float_2
+
+print('Integer Exponentiation:', exp_ints) # Integer Exponentiation: 951166013805414055936
+print('Float Exponentiation:',  exp_floats) # Float Exponentiation: 614787626.1765089
+```
+
+#### Converting Between Integers and Floats
+
+Python also provides built-in functions for converting either numeric data or strings into integers or floats. You can use the `float()` function to convert an integer into a float by adding a decimal point of `0` to the integer.
+
+And you can use the `int()` function to convert a float into an integer, which removes the decimal point and everything after it from the float you pass it.
+
+Also, you can use the same built-in functions to convert a string into either a float or integer:
+
+```python
+my_str_int = '45'
+my_str_float = '7.8'
+
+converted_int = int(my_str_int)
+converted_float = float(my_str_float)
+
+print(converted_int, type(converted_int))  # 45 <class 'int'>
+print(converted_float, type(converted_float))  # 7.8 <class 'float'>
+```
+
+#### Common Methods
+
+Here are some other methods Python provides for working with integers and floats:
+
+> - `round()`: Rounds a number to the specified number of decimal places. By default this function rounds to the nearest integer, and returns a whole number with no decimal places:
+
+```python
+my_int_1 = 4.798
+my_int_2 = 4.253
+
+rounded_int_1 = round(my_int_1)
+rounded_int_2 = round(my_int_2, 1)
+
+print(rounded_int_1) # 5
+print(rounded_int_2) # 4.3
+abs(): returns the absolute value of a number,
+num = -15
+
+absolute_value = abs(num)
+print(absolute_value) # 15
+```
+
+> - `bin()`: converts an integer to its binary representation as a string.
+> - `oct()`: converts an integer to its octal representation as a string.
+> - `hex()`: converts an integer to its hexadecimal representation as a string.
+
+```python
+my_int = 56
+
+binary_representation = bin(my_int)
+print(binary_representation)  # 0b111000
+
+octal_representation = oct(my_int)
+print(octal_representation) # 0o70
+
+hex_representation = hex(my_int)
+print(hex_representation) # 0x38
+```
+
+>- pow(): raises a number to the power of another or performs modular exponentiation.
+
+```python
+result_1 = pow(2, 3)  # Equivalent to 2 ** 3
+print(result_1)  # 8
+
+result_2 = pow(2, 3, 5)  # (2 ** 3) % 5
+print(result_2)  # 3
+```
+
+### Augmented Assignments
+
+(WIP)
 
 ## Loops and Sequences
 
@@ -411,6 +563,6 @@ ends with the specified suffix.
 
 ## Dynamic Programming
 
-# References
+## References
 
-*Certified Full Stack Developer Curriculum*. freecodecamp.org. (n.d.). https://www.freecodecamp.org/learn/full-stack-developer/
+*Certified Full Stack Developer Curriculum*. freecodecamp.org. (n.d.). <https://www.freecodecamp.org/learn/full-stack-developer/>
