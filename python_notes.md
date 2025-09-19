@@ -8,15 +8,15 @@ The source material can be found here:
 
 ## Table of Contents
 
-1. Python Basics
-    1. What is Python and what are some common uses in the industry
-    2. Variables
+1. [Python Basics](#python-basics)
+    1. [What is Python and what are some common uses in the industry](#what-is-python-and-what-are-some-common-uses-in-the-industry)
+    2. [Variables](#variables)
         1. Data Types
         2. Immutable Data Types
         3. Determining Data Types
         4. Data Hints
-    3. `print()` Function
-    4. Working with Strings
+    3. [`print()` Function](#print-function)
+    4. [Working with Strings](#working-with-strings)
         1. Multiline Strings
         2. Strings Containing Quotation Marks
         3. String Concatenation
@@ -24,29 +24,28 @@ The source material can be found here:
         5. Indexing
         6. String Slicing
         7. `in` Operator
-    5. Common String Methods
-    6. Working with Integers and Floats
+    5. [Common String Methods](#common-string-methods)
+    6. [Working with Integers and Floats](#working-with-integers-and-floats)
         1. Basic Arithmetic Operators
         2. Combining Integers and Floats
-        3. Other Common Operators
+        3. Other Mathematical Operators
         4. Converting Between Integers and Floats
         5. Common Methods
-    7. Augmented Assignments
-        1. Introduction and Syntax
-        2. Common Augmented Assignment Operators
-    8. Functions
+    7. [Augmented Assignments](#augmented-assignments)
+        1. Common Augmented Assignment Operators
+    8. [Functions](#functions)
         1. Code Blocks
-        2. Parameters
-        3. Return
-        4. Decorators
-    9. What is Scope in Python and How Doues it Work?
+        2. Fubction Parameters
+        3. Function Return
+        4. Function Decorators
+    9. [What is Scope in Python and How Does it Work?](#what-is-scope-in-python-and-how-does-it-work)
         1. Local Scope
         2. Enclosing Scope
         3. Global Scope
         4. Built-In Scope
-    10. Conditional Statements and Logical Operators
+    10. [Conditional Statements and Logical Operators](#conditional-statements-and-logical-operators)
         1. `if`, `else`, and `elif` Statements
-    11. Truthy and Falsy Values, Boolean Operators, and Short-Circuiting
+    11. [Truthy and Falsy Values, Boolean Operators, and Short-Circuiting](#truthy-and-falsy-values-boolean-operators-and-short-circuiting)
 2. (WIP)
 
 ## Python Basics
@@ -438,7 +437,7 @@ This is true for other basic arithmetic operations, too, like subtraction, multi
 
 You can also perform more complex arithmetic calculations such as getting the remainder of two numbers with the modulo operator, floor division, and exponentiation with both integers and floats.
 
-#### Other Operators
+#### Other Mathematical Operators
 
 The modulo operator (`%`) returns the remainder when the value on the left is divided by the value on the right:
 
@@ -557,8 +556,6 @@ print(result_2)  # 3
 ```
 
 ### Augmented Assignments
-
-#### Introduction and Syntax
 
 Augmented assignment combines a binary operation with an assignment in one step. It takes a variable, applies an operation to it with another value, and stores the result back into the same variable.
 
@@ -690,7 +687,7 @@ Though you can use either two or four spaces to determine each level of indentat
 
 Blocks are also found in loops and conditionals, which you'll learn about in future lectures.
 
-#### Parameters
+#### Function Parameters
 
 Here's another simple function that prints the sum of two numbers to the terminal:
 
@@ -717,7 +714,7 @@ calculate_sum()
 # TypeError: calculate_sum() missing 2 required positional arguments: 'a' and 'b'
 ```
 
-#### Return
+#### Function Return
 
 Functions also use a special `return` keyword to exit the function and return a value. If you don't explicitly use `return`, Python will return None by default.
 
@@ -743,7 +740,7 @@ print(my_sum) # 4
 
 Now, `calculate_sum` returns the sum of `a` and `b`, which gets stored in `my_sum`.
 
-#### Decorators
+#### Function Decorators
 
 Decorators are a special kind of function in Python. They are like wrappers for other functions, so they take another function as an argument. With decorators, you get to add extra functionality to a function without modifying its original code. Here's an example of how to use a decorator:
 
