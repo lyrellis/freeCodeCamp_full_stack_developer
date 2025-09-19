@@ -35,6 +35,18 @@ The source material can be found here:
         1. Introduction and Syntax
         2. Common Augmented Assignment Operators
     8. Functions
+        1. Code Blocks
+        2. Parameters
+        3. Return
+        4. Decorators
+    9. What is Scope in Python and How Doues it Work?
+        1. Local Scope
+        2. Enclosing Scope
+        3. Global Scope
+        4. Built-In Scope
+    10. Conditional Statements and Logical Operators
+        1. `if`, `else`, and `elif` Statements
+    11. Truthy and Falsy Values, Boolean Operators, and Short-Circuiting
 2. (WIP)
 
 ## Python Basics
@@ -636,6 +648,346 @@ print(power) # 8
 There are other augmented assignment operators too, like those for bitwise operators. They include `&=`, `^=`, `>>=`, and `<<=`.
 
 ### Functions
+
+Functions are reusable pieces of code that run when you call them. Many programming languages come with built-in functions that make it easier to get started. Python is no exception, and we've already covered some built-in functions like `print()` in previous lectures.
+
+Another helpful built-in function is `input()`, which lets you prompt the user for input:
+
+```python
+name = input('What is your name?') # User types "Kolade" and presses Enter  
+print('Hello', name) # Output: Hello Kolade
+```
+
+On the other hand, int() converts a number, boolean, and a numeric string into an integer:
+
+```python
+print(int(3.14)) # 3
+print(int('42')) # 42
+print(int(True)) # 1
+print(int(False)) # 0
+```
+
+Here's an example of a custom function named hello that prints the string Hello World to the terminal:
+
+```python
+def hello():
+    print('Hello World')
+```
+
+To run the function, you need to call it with its name followed by a pair of parentheses:
+
+```python
+hello() # Hello World
+```
+
+#### Code Blocks
+
+> Notice the indentation before `print('Hello World')`. The level of indentation defines a **"code block"** in Python, which is a group of statements that belong together.
+
+While other programming languages use characters like curly braces to define code blocks, and just use indentation for readability, in Python, code blocks are determined by indentation.
+
+Though you can use either two or four spaces to determine each level of indentation, the Python style guide recommends using four spaces.
+
+Blocks are also found in loops and conditionals, which you'll learn about in future lectures.
+
+#### Parameters
+
+Here's another simple function that prints the sum of two numbers to the terminal:
+
+```python
+def calculate_sum(a, b):
+    print(a + b)
+```
+
+You can see that our function, `calculate_sum`, has `a` and `b` in its parentheses, separated by a comma. Those are called parameters. Think of parameters as placeholder variables that act as "slots" for the values you pass into functions when you call them.
+
+To use the parameters, you have to pass in "arguments". Arguments are the values you pass to a function when you call it.
+
+Here's how to call the `calculate_sum` function to sum together the numbers `3` and `1`:
+
+```python
+calculate_sum(3, 1) # 4
+```
+
+If you call the function without the correct number of arguments, you'll get a `TypeError`:
+
+```python
+calculate_sum()
+
+# TypeError: calculate_sum() missing 2 required positional arguments: 'a' and 'b'
+```
+
+#### Return
+
+Functions also use a special `return` keyword to exit the function and return a value. If you don't explicitly use `return`, Python will return None by default.
+
+Here's an example:
+
+```python
+def calculate_sum(a, b):
+    print(a + b)
+
+my_sum = calculate_sum(3, 1) # 4
+print(my_sum) # None
+```
+
+You can see that the `calculate_sum` function prints the sum of a and b, but it doesn't return anything explicitly. So when we assign its result to `my_sum`, the value is actually `None`. To fix that, you can use the `return` keyword to send back the result:
+
+```python
+def calculate_sum(a, b):
+    return a + b
+
+my_sum = calculate_sum(3, 1)
+print(my_sum) # 4
+```
+
+Now, `calculate_sum` returns the sum of `a` and `b`, which gets stored in `my_sum`.
+
+#### Decorators
+
+Decorators are a special kind of function in Python. They are like wrappers for other functions, so they take another function as an argument. With decorators, you get to add extra functionality to a function without modifying its original code. Here's an example of how to use a decorator:
+
+```python
+def say_hello():
+   name = input('What is your name? ')
+   return 'Hello ' + name
+
+def uppercase_decorator(func):
+   def wrapper():
+       original_func = func()
+       modified_func = original_func.upper()
+       return modified_func
+   return wrapper
+
+say_hello_res = uppercase_decorator(say_hello)
+
+print(say_hello_res())
+```
+
+### What is Scope in Python and How Does it Work?
+
+In Python, scope determines the point at which you can access a variable. It's what controls the lifetime of a variable and how it is resolved in different parts of the code.
+
+To correctly determine scope, Python follows the LEGB rule, which stands for the following:
+
+> - **Local scope (L)**: Variables defined in functions or classes.
+> - **Enclosing scope (E)**: Variables defined in enclosing or nested functions.
+> - **Global scope (G)**: Variables defined at the top level of the module or file.
+> - **Built-in scope (B)**: Reserved names in Python for predefined functions, modules, keywords, and objects.
+
+Python uses the LEGB rule to resolve the scope of the variables in your program. We'll dive into each of these rules so you get a better understanding of the process.
+
+#### Local Scope
+
+Local scope means that a variable declared inside a function or class can only be accessed within that function or class.
+
+Here's an example:
+
+```python
+def my_func():
+    my_var = 10
+    print(my_var)
+```
+
+In this case, the `my_func` function has its own scope which cannot be accessed from outside the function. Calling `my_func` will output `10`, but printing `my_var` outside the function will lead to a `NameError`.
+
+#### Enclosing Scope
+
+Enclosing scope means that a function that's nested inside another function can access the variables of the function it's nested within.
+
+For example:
+
+```python
+def outer_func():
+    msg = 'Hello there!'
+
+    def inner_func():
+        print(msg)
+
+    inner_func()
+
+outer_func() # Hello there!
+```
+
+In this example, the inner function, `inner_func`, can freely access the `msg` variable defined in the outer function, `outer_func`. However, note that outer functions cannot access variables defined within any nested functions:
+
+```python
+def outer_func():
+    msg = 'Hello there!'
+    print(res)
+
+    def inner_func():
+        res = 'How are you?'
+        print(msg)
+
+    inner_func()
+
+outer_func() # NameError: name 'res' is not defined
+```
+
+One solution is to initialize `res` as an empty string in the enclosing scope, which is within `outer_func`. Then within `inner_func`, make `res` a non-local variable with the `nonlocal` keyword:
+
+```python
+def outer_func():
+    msg = 'Hello there!'
+    res = ""  # Declare res in the enclosing scope
+
+    def inner_func():
+        nonlocal res  # Allow modification of an enclosing variable
+        res = 'How are you?'
+        print(msg)  # Accessing msg from outer_func()
+
+    inner_func()
+    print(res)  # Now res is accessible and modified
+
+outer_func()
+
+# Output:
+# Hello there!
+# How are you?
+```
+
+#### Global Scope
+
+Global scope refers to variables that are declared outside any functions or classes which can be accessed from anywhere in the program. Here, `my_var` can be accessed anywhere, even inside a function it's not defined in:
+
+```python
+my_var = 100
+
+def show_var():
+    print(my_var)
+
+show_var() # 100
+print(my_var) # 100
+```
+
+And if you want to make a locally scoped variable defined inside a function globally accessible, you can use the `global` keyword:
+
+```python
+my_var_1 = 7
+
+def show_vars():
+    global my_var_2
+    my_var_2 = 10
+    print(my_var_1)
+    print(my_var_2)
+
+show_vars() # 7 10
+
+# my_var_2 is now a global variable and can be accessed anywhere in the program
+print(my_var_2) # 10
+```
+
+You can also use the `global` keyword to modify a global variable:
+
+```python
+my_var = 10  # A global variable
+
+def change_var():
+    global my_var  # Allows modification of a global variable
+    my_var = 20
+
+change_var()
+
+print(my_var)  # my_var is now modified globally to 20
+```
+
+#### Built-In Scope
+
+Finally, built-in scope refers to all of Python's built-in functions, modules, and keywords, and are available anywhere in your program:
+
+```python
+print(str(45)) # '45'
+print(type(3.14)) # <class 'float'>
+print(isinstance(3, str)) # False
+```
+
+### Conditional Statements and Logical Operators
+
+Conditional statements, or conditionals, let you control the flow of your program based on whether certain conditions are true or false.
+
+But before we get into all that, let's go over the basic building blocks of conditional statements, starting with comparison operators. Comparison operators are operators that let you compare two or more values, and return a boolean value.
+
+Here's a table with the comparison operators in Python:
+
+| Operator | Name | Description |
+| --- | --- | --- |
+| `==` | Equal | Checks if two values are equal |
+| `!=` | Not equal | Checks if two values are not equal |
+| `>` |Greater than | Checks if the value on the left is greater than the value on the right |
+| `<` | Less than | Checks if the value on the left is less than the value on the right |
+| `>=` | Greater than or equal | Checks if the value on the left is greater than or equal to the value on the right |
+| `<=` | Less than or equal | Checks if the value on the left is less than or equal to the value on the right |
+
+Here are some of those expressions that evaluate to True or False:
+
+```python
+print(3 > 4) # False
+print(3 < 4) # True
+print(3 == 4) # False
+print(4 == 4) # True
+print(3 != 4) # True
+print(3 >= 4) # False
+print(3 <= 4) # True
+```
+
+These operators can be used in conditionals to compare values and run certain code based on whether the conditional evaluates to `True` or `False`.
+
+#### `if`, `elif`, and `else` Statements
+
+In Python, the most basic conditional is the if statement. Here's the basic syntax:
+
+```python
+if condition:
+    # Code to execute if condition is True
+```
+
+> - `if` statements start with the `if` keyword.
+> - `condition` is an expression that evaluates to True of False, followed by a colon (`:`).
+> - The indentation specifies the block of code within the body of the `if` statement.
+
+The `else` clause runs when the `if` condition is false. Here's the syntax for an `if…else` statement:
+
+```python
+if condition:
+   # Code to execute if condition is True
+else:
+   # Code to execute if condition is False
+```
+
+There might be situations in which you want to account for multiple conditions. To do that, Python lets you extend your `if` statement with the `elif` (else if) keyword.
+
+Here's the syntax:
+
+```python
+if condition:
+   # Code to execute if condition is True
+elif condition2:
+   # Code to execute if condition2 is True
+else:
+   # Code to execute if all conditions are False
+```
+
+> Note that you can use as many `elif` statements as you want:
+
+```python
+age = 2
+
+if age >= 65:
+    print('You are a senior citizen')
+elif age >= 30:
+    print('You are an adult in your prime')
+elif age >= 18:
+    print('You are a young adult')
+elif age >= 13:
+    print('You are a teenager')
+elif age >= 3:
+    print('You are a young child')
+else:
+    print('You are a toddler or an infant') # You are a toddler or an infant
+```
+
+### Truthy and Falsy Values, Boolean Operators, and Short-Circuiting
 
 (WIP)
 
