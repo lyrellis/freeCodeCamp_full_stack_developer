@@ -48,7 +48,16 @@ The source material can be found here:
     11. [Truthy and Falsy Values, Boolean Operators, and Short-Circuiting](#truthy-and-falsy-values-boolean-operators-and-short-circuiting)
         1. Truthy and Falsy Values
         2. Boolean Operators
-2. (WIP)
+2. [Loops and Sequences](#loops-and-sequences)
+    1. [Lists](#lists)
+        1. `len()` Function for Lists
+        2. Updating Lists
+        3. List Keywords
+        4. Nested Lists
+        5. List Unpacking
+        6. List Splicing
+    2. [Common Methods for Lists](#common-methods-for-lists)
+3. (WIP)
 
 ## Python Basics
 
@@ -1180,6 +1189,159 @@ else:
 ---
 
 ## Loops and Sequences
+
+### Lists
+
+The list data type is an ordered sequence of elements that can be comprised of strings, numbers, or even other lists. Similar to JavaScript, lists are mutable and use zero-based indexing, meaning that the first element of the list is at index zero.
+
+Here is the basic syntax for a list:
+
+```python
+cities = ['Los Angeles', 'London', 'Tokyo']
+```
+
+To access an element from the `cities` list, you can reference its index number in the sequence. Here is an example of accessing the first element of the `cities` list:
+
+```python
+cities = ['Los Angeles', 'London', 'Tokyo']
+cities[0] # 'Los Angeles'
+```
+
+Negative indexing is used to access elements starting from the end of the list instead of the beginning at index `0`. To access the last element of any list, you can use `-1` like this:
+
+```python
+cities = ['Los Angeles', 'London', 'Tokyo']
+cities[-1] # 'Tokyo'
+```
+
+> Another way to create a list is to use the `list()` constructor. The `list()` constructor is used to convert an iterable into a list like this:
+
+```python
+developer = 'Jessica'
+list(developer) # ['J', 'e', 's', 's', 'i', 'c', 'a']
+```
+
+An *iterable* is a special type of object that can be looped over one item at a time. You will learn more about loops in Python later on.
+
+#### `len()` Function for Lists
+
+To get the total number of elements in a list, you can use the `len()` function.
+
+#### Updating Lists
+
+If you wanted to update a value at a particular index, you can do something like this:
+
+```python
+programming_languages = ['Python', 'Java', 'C++', 'Rust']
+programming_languages[0] = 'JavaScript'
+print(programming_languages) # ['JavaScript', 'Java', 'C++', 'Rust']
+```
+
+Since lists are mutable, you can update any element in the list as long as you pass in a valid index number. If you pass in an index (either positive or negative) that is out of bounds for the list, then you will receive an `IndexError`.
+
+#### List Keywords
+
+> If you want to remove an element from a list you can use the `del` keyword like this:
+
+```python
+developer = ['Jane Doe', 23, 'Python Developer']
+del developer[1]
+print(developer) # ['Jane Doe', 'Python Developer']
+```
+
+> Sometimes it is helpful to check if an element is inside the list. To do that, you can use the `in` keyword like this:
+
+```python
+programming_languages = ['Python', 'Java', 'C++', 'Rust']
+
+'Rust' in programming_languages # True
+'JavaScript' in programming_languages # False
+```
+
+#### Nested Lists
+
+Sometimes it is common to have lists nested inside of other lists like this:
+
+```python
+developer = ['Alice', 25, ['Python', 'Rust', 'C++']]
+```
+
+In this example, we have one nested list containing three popular programming languages. To access the nested list, you will need to access it using index `2` since lists are zero based indexed:
+
+```python
+developer = ['Alice', 25, ['Python', 'Rust', 'C++']]
+developer[2] # ['Python', 'Rust', 'C++']
+```
+
+Then to access the second language from that nested list, you will need to access it using index `1` like this:
+
+```python
+developer = ['Alice', 25, ['Python', 'Rust', 'C++']]
+developer[2][1] # 'Rust'
+```
+
+#### List Unpacking
+
+Unpacking values from a list is a technique used to assign values from a list to new variables. Here is an example of unpacking a developer list into new variables called `name`, `age` and `job`.
+
+```python
+developer = ['Alice', 34, 'Rust Developer']
+name, age, job = developer
+
+print(name) # 'Alice'
+print(age) # 34
+print(job) # 'Rust Developer'
+```
+
+Here, name has the value `'Alice'`, age has the value `34`, and `job` has the value `'Rust Developer'`.
+
+If you need to collect any remaining elements from a list, you can use the asterisk (`*`) operator like this:
+
+```python
+developer = ['Alice', 34, 'Rust Developer']
+name, *rest = developer
+
+print(name) # 'Alice'
+print(rest) # [34, 'Rust Developer']
+```
+
+In this example, `name` will still have the value `'Alice'`, and `rest` is a list of two items: the number `34` and the string `'Rust Developer'`.
+
+If the numbers of variables on the left side of the assignment operator doesn't match the total numbers of items in the list, then you will receive a `ValueError`.
+
+#### List Splicing
+
+The last concept we will look at is the slice operator (`:`). Similar to strings, you can access portions of a list by using the slice operator like this:
+
+```python
+desserts = ['Cake', 'Cookies', 'Ice Cream', 'Pie', 'Brownies']
+desserts[1:4] # ['Cookies', 'Ice Cream', 'Pie']
+```
+
+In this example, the start index is `1` since that points to the second item in the list. Then we use the slice operator followed by an end index of `4`, which includes everything up to (but not including), the item at that index.
+
+Another thing you can do with the slice operator `:` is specify a step interval which determines how much to increment between the indices. Let's say you had a list of numbers like this:
+
+```python
+numbers = [1, 2, 3, 4, 5, 6]
+```
+
+If you wanted to extract a list of just even numbers, you can use the slicing operator like this:
+
+```python
+numbers = [1, 2, 3, 4, 5, 6]
+numbers[1::2] # [2, 4, 6]
+```
+
+---
+
+[Return to top](#table-of-contents)
+
+---
+
+### Common Methods for Lists
+
+(WIP)
 
 ## Dictionaries and Sets
 
