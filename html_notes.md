@@ -131,6 +131,12 @@ Comments are used in programming to leave notes for yourself and other developer
 <!--This is an HTML comment.-->
 ```
 
+---
+
+[Back to top](#table-of-contents)
+
+---
+
 ### Common HTML elements
 
 #### Heading Elements
@@ -265,6 +271,12 @@ This element is placed at the bottom of the HTML document and usually contains c
 </footer>
 ```
 
+---
+
+[Back to top](#table-of-contents)
+
+---
+
 ### Identifiers and Grouping
 
 #### IDs
@@ -295,6 +307,12 @@ Unlike IDs, you can reuse the same class name throughout the HTML document. The 
 <div class="box red-box"></div>
 <div class="box blue-box"></div>
 ```
+
+---
+
+[Back to top](#table-of-contents)
+
+---
 
 ### Special Characters and Linking
 
@@ -336,6 +354,12 @@ While you can technically write all of your JavaScript code inside the script ta
 
 The `src` attribute is used here to specify the location for that external JavaScript file.
 
+---
+
+[Back to top](#table-of-contents)
+
+---
+
 ### Boilerplate and Encoding
 
 #### HTML boilerplate
@@ -376,6 +400,12 @@ These elements represent your site's metadata. These element have details about 
 
 This element is used to set the text that appears in the browser tab or window.
 UTF-8 character encoding: UTF-8, or UCS Transformation Format 8, is a standardized character encoding widely used on the web. Character encoding is the method computers use to store characters as data. The charset attribute is used inside of a meta element to set the character encoding to UTF-8.
+
+---
+
+[Back to top](#table-of-contents)
+
+---
 
 ### SEO and Social Sharing
 
@@ -433,6 +463,12 @@ This is used to set the URL that users will click on for the social media posts.
 ```html
 <meta property="og:url" content="https://www.freecodecamp.org" />
 ```
+
+---
+
+[Back to top](#table-of-contents)
+
+---
 
 ### Media Elements and Optimization
 
@@ -574,6 +610,12 @@ If you wanted to display an image while the video is downloading, you can use th
 ></video>
 ```
 
+---
+
+[Back to top](#table-of-contents)
+
+---
+
 ### Target attribute types
 
 #### `target` Attribute
@@ -619,6 +661,12 @@ This opens the link in the top-most browsing context - think "the parent of the 
 <a href="https://freecodecamp.org" target="_top">Visit freeCodeCamp</a>
 ```
 
+---
+
+[Back to top](#table-of-contents)
+
+---
+
 ### Absolute vs. Relative Paths
 
 #### Path definition
@@ -659,6 +707,12 @@ A relative path specifies the location of a file relative to the directory of th
   <a href="about.html">About Page</a>
 </p>
 ```
+
+---
+
+[Back to top](#table-of-contents)
+
+---
 
 ### Link states
 
