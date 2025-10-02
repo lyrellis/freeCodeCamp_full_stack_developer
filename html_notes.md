@@ -77,6 +77,40 @@ The source material can be found here:
         4. `:focus`
         5. `:active`
 2. [Semantic HTML](#semantic-html)
+    1. [Importance of Semantic HTML](#importance-of-semantic-html)
+    2. [Presentational HTML Elements](#presentational-html-elements)
+        1. `font` Element
+        2. `center` Element
+        3. `big` Element
+    3. [Semantic HTML Elements](#semantic-html-elements)
+        1. Header Element
+        2. Main Element
+        3. Section Element
+        4. Navigation Section Element
+        5. Figure Element
+        6. Emphasis Element
+        7. Idiomatic Text Element
+        8. Strong Importance Element
+        9. Bring Attention To Element
+        10. Description List Element
+            1. Description Term Element
+            2. Description Details Element
+        11. Block Quotation Element
+        12. Citation Element
+        13. Inline Quotation Element
+        14. Abbreviation Element
+        15. Contact Address Element
+        16. Date and Time Element
+            1. ISO 8601 Date Attribute
+        17. Superscript Element
+        18. Subscript Element
+        19. Inline Code Element
+        20. Preformatted Text Element
+        21. Unarticulated Annotation Element
+        22. Ruby Annotation Element
+            1. Ruby Fallback Parenthesis Element
+            2. Ruby Text Element
+        23. Strikethrough Element
 3. [Forms and Tables](#forms-and-tables)
 4. [Accessibility](#accessibility)
 5. [References](#references)
@@ -380,7 +414,7 @@ This is a boilerplate that includes the basic structure and essential elements e
 </html>
 ```
 
-#### DOCTYPE
+#### `DOCTYPE`
 
 This is used to tell browsers which version of HTML you're using.
 
@@ -743,6 +777,307 @@ This state applies to links that are being activated by the user. This typically
 ---
 
 ## Semantic HTML
+
+### Importance of Semantic HTML
+
+Semantics are the meaning of words, or phrases, in a language. In HTML, which is a language, elements have their own semantic meaning too. In fact, you can think of your HTML document like you would a text document. And much like a text document, you might have headings, images, bold text, and other formatting.
+
+Most elements have semantic meaning. The `div` element is one of the very few that does not. But why is this important?
+
+First and foremost, using proper semantic HTML will ensure the best experience for users with assistive technology like screen readers. But also, semantic HTML can improve your search rankings. This is referred to as search engine optimization, or SEO.
+
+Finally, using correct semantic elements can improve your development experience. Rather than having to sift through a bunch of developments to find your navigation bar, you can edit the nav element directly and know what you're changing. Throughout this section, you will learn more about these topics, how to use semantic elements, and why semantic HTML is so important.
+
+It is important to use the correct heading element to maintain the structural hierarchy of the content. The `h1` element is the highest level of heading and the `h6` element is the lowest level of heading.
+
+---
+
+[Back to top](#table-of-contents)
+
+---
+
+### Presentational HTML elements
+
+Presentational HTML focuses on the appearance and style of the content. In the early days of HTML, developers would use elements like the `center`, `big`, and `font` elements. But in modern web development you shouldn't use these types of elements, because of their limitations and negative impact on accessibility and maintainability.
+
+Many presentational HTML elements are deprecated, which means that they are outdated and no longer recommended. There are better ways to get the same results. However, it is helpful to know that they exist, so we'll take a look at some examples.
+
+#### `font` Element
+
+The `font` element is a deprecated element used to set the font size and color of the text. Here's an example of a font element:
+
+```html
+<font size="5" color="blue">This text is blue and large.</font>
+```
+
+> This example sets the color of the text to blue and the size to a value of `5`. The range for the size attribute is from `1` to `7`, with `1` being the smallest and `7` being the largest. The default value is `3`, if you don't set the value explicitly.
+
+*While this element still works, you should not use it because the font size and color should always be set in CSS, not in HTML.*
+
+#### `center` Element
+
+The `center` element is another deprecated element that is used to center the content horizontally within its container. Here's an example of the center element that contains text and a paragraph element:
+
+```html
+<center>
+  This text is centered.
+  <p>HTML is awesome.</p>
+</center>
+```
+
+In the browser, you would see all of the content within the `center` element centered horizontally.
+
+#### `big` Element
+
+And next, we have the `big` element. This is another deprecated presentational HTML element that makes the enclosed text one level bigger than its surrounding text. Here we have an example that defines a paragraph with two parts:
+
+```html
+<p>
+  This text has a normal font size.
+  <big>This text is larger.</big>
+</p>
+```
+
+The first part has normal sized text, while the second part enclosed within the `big` element will be displayed in a larger font size. In the browser, you would see the text within the `big` element looks larger compared to the surrounding text.
+
+*However, remember that font size should always be set with CSS, so you should not use this element in modern HTML.*
+
+---
+
+[Back to top](#table-of-contents)
+
+---
+
+### Semantic HTML Elements
+
+#### Header element
+
+Used to define the header of a document or section.
+
+#### Main element
+
+Used to contain the main content of the web page.
+
+#### Section element
+
+Used to divide up content into smaller sections.
+
+#### Navigation Section (`nav`) element
+
+Represents a section with navigation links.
+
+#### Figure element
+
+Used to contain illustrations and diagrams.
+
+#### Emphasis (`em`) element
+
+Marks text that has stress emphasis.
+
+```html
+<p>
+  Never give up on <em>your</em> dreams.
+</p>
+```
+
+#### Idiomatic Text (`i`) element
+
+Used for highlighting alternative voice or mood, idiomatic terms from another language, technical terms, and thoughts.
+
+```html
+<p>
+  There is a certain <i lang="fr">je ne sais quoi</i> in the air.
+</p>
+```
+
+The `lang` attribute inside the open `i` tag is used to specify the language of the content. In this case, the language would be French. The `i` element does not indicate if the text is important or not, it only shows that it's somehow different from the surrounding text.
+
+#### Strong Importance (`strong`) element
+
+Marks text that has strong importance.
+
+```html
+<p>
+  <strong>Warning:</strong> This product may cause allergic reactions.
+</p>
+```
+
+#### Bring Attention To (`b`) element
+
+Used to bring attention to text that is not important for the meaning of the content. It's commonly used to highlight keywords in summaries or product names in reviews.
+
+```html
+<p>
+  We tested several products, including the <b>SuperSound 3000</b> for audio quality, the <b>QuickCharge Pro</b> for fast charging, and the <b>Ecoclean Vacuum</b> for cleaning. The first two performed well, but the <b>Ecoclean Vacuum</b> did not meet expectations.
+</p>
+```
+
+#### Description List (`dl`) element
+
+Used to represent a list of term-description groupings.
+
+##### Description Term (`dt`) element
+
+Used to represent the term being defined.
+
+##### Description Details (`dd`) element
+
+Used to represent the description of the term.
+
+```html
+<dl>
+  <dt>HTML</dt>
+  <dd>HyperText Markup Language</dd>
+  <dt>CSS</dt>
+  <dd>Cascading Style Sheets</dd>
+</dl>
+```
+
+#### Block Quotation (`blockquote`) element
+
+Used to represent a section that is quoted from another source. This element has a `cite` attribute. The value of the `cite` attribute is the URL of the source.
+
+```html
+<blockquote cite="https://www.freecodecamp.org/news/learn-to-code-book/">
+  "Can you imagine what it would be like to be a successful developer? To have built software systems that people rely upon?"
+</blockquote>
+```
+
+#### Citation (`cite`) element
+
+Used to attribute the source of the referenced work visually. Marks up the title of the reference.
+
+```html
+<div>
+  <blockquote cite="https://www.freecodecamp.org/news/learn-to-code-book/">
+    "Can you imagine what it would be like to be a successful developer? To have built software systems that people rely upon?"
+  </blockquote>
+  <p>
+    -Quincy Larson, <cite>How to learn to Code and Get a Developer Job [Full Book].</cite>
+  </p>
+</div>
+```
+
+#### Inline Quotation (`q`) element
+
+Used to represent a short inline quotation.
+
+```html
+<p>
+  As Quincy Larson said,
+  <q cite="https://www.freecodecamp.org/news/learn-to-code-book/">
+    Momentum is everything.
+  </q>
+</p>
+```
+
+#### Abbreviation (`abbr`) element
+
+Used to represent an abbreviation or acronym. To help users understand what the abbreviation or acronym is, you can show its full form, a human readable description, with the title attribute.
+
+```html
+<p>
+  <abbr title="HyperText Markup Language">HTML</abbr> is the foundation of the web.
+</p>
+```
+
+#### Contact Address (`address`) element
+
+Used to represent the contact information.
+
+#### Date and Time (`time`) element
+
+Used to represent a date and/or time. The datetime attribute is used to translate dates and times into a machine-readable format.
+
+```html
+<p>
+  The reservations are for the <time datetime="20:00">20:00 </time>
+</p>
+```
+
+##### ISO 8601 Date (`datetime`) attribute
+
+Used to represent dates and times in a machine-readable format. The standard format is `YYYY-MM-DDThh:mm:ss`, with the capital `T` being a separator between the date and time.
+
+#### Superscript (`sup`) element
+
+Used to represent superscript text. Common use cases for the `sup` element would include exponents, superior lettering and ordinal numbers.
+
+```html
+<p>
+  2<sup>2</sup> (2 squared) is 4.
+</p>
+```
+
+#### Subscript (`sub`) element
+
+Used to represent subscript text. Common use cases for the subscript element include chemical formulas, footnotes, and variable subscripts.
+
+```html
+<p>
+  CO<sub>2</sub>
+</p>
+```
+
+#### Inline Code (`code`) element
+
+Used to represent a fragment of computer code.
+
+#### Preformatted Text (`pre`) element
+
+Represents preformatted text
+
+```html
+<pre>
+  <code>
+    body {
+      color: red;
+    }
+  </code>
+</pre>
+```
+
+#### Unarticulated Annotation (`u`) element
+
+Used to represent a span of inline text which should be rendered in a way that indicates that it has a non-textual annotation.
+
+```html
+<p>
+  You can use the unarticulated annotation element to highlight
+  <u>inccccort</u> <u>spling</u> <u>issses</u>.
+</p>
+```
+
+#### Ruby Annotation (`ruby`) element
+
+Used for annotating text with pronunciation or meaning explanations. An example usage is for East Asian typography.
+
+##### Ruby fallback parenthesis (`rp`) element
+
+Used as a fallback for browsers lacking support for displaying ruby annotations.
+
+##### Ruby text (`rt`) element
+
+Used to indicate text for the ruby annotation. Usually used for pronunciation, or translation details in East Asian typography.
+
+```html
+<ruby>
+  明日 <rp>(</rp><rt>Ashita</rt><rp>)</rp>
+</ruby>
+```
+
+#### Strikethrough (`s`) element
+
+Used to represent content that is no longer accurate or relevant.
+
+```html
+<p>
+  <s>Tomorrow's hike will be meeting at noon.</s>
+</p>
+<p>
+  Due to unforeseen weather conditions, the hike has been canceled.
+</p>
+```
 
 ---
 
