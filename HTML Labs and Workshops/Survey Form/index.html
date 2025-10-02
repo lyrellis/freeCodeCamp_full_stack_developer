@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Survey Form</title>
+  </head>
+
+  <body>
+    <h1 id="title">Books & Movies</h1>
+    <p id="description">Complete the form below.</p>
+    <form id="survey-form">
+      <fieldset>
+        <legend>Personal Information</legend>
+        <label for="name"
+          id="name-label"
+        >Name (required):
+        </label>
+        <input required
+          id="name"
+          type="text"
+          placeholder="ex. John Doe"
+        >
+      
+        <label for="email"
+          id="email-label"
+        >Email (required):
+        </label>
+        <input required
+          id="email"
+          type="email"
+          placeholder="ex. random@email.com"
+        >
+      </fieldset>
+
+      <fieldset>
+        <legend>Books & Movies</legend>
+        <label for="number"
+          id="number-label"
+        >How many books or movies have you read/watched in the past month? (between 0-10)
+        </label>
+        <input
+          id="number"
+          type="number"
+          min="0"
+          max="10"
+          placeholder="ex. 3"
+        >
+
+        <fieldset>
+          <legend>Do you prefer books or movies?</legend>
+
+          <input
+            type="radio"
+            value="books"
+            name="books-or-movies"
+          >
+          <label>Books</label>
+
+          <input
+            type="radio"
+            value="movies"
+            name="books-or-movies"
+          >
+          <label>Movies</label>
+        </fieldset>
+
+        <fieldset>
+          <legend>What genres do you like?</legend>
+
+          <input
+            type="checkbox"
+            value="action"
+          >
+          <label>Action</label>
+
+          <input
+            type="checkbox"
+            value="adventure"
+          >
+          <label>Adventure</label>
+
+          <input
+            type="checkbox"
+            value="mystery"
+          >
+          <label>Mystery</label>
+
+          <input
+            type="checkbox"
+            value="fantasy"
+          >
+          <label>Fantasy</label>
+        </fieldset>
+
+        <legend>List some of your favorites.</legend>
+        <textarea></textarea>
+
+      </fieldset>
+
+      <label>Rate this form!</label>
+      <select id="dropdown">
+        <option selected value="good">Good</option>
+        <option value="bad">Bad</option>
+      </select>
+
+      <button id="submit" type="submit">Submit</button>
+    </form>
+  </body>
+</html>
