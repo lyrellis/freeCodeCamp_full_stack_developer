@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Checkout Page</title>
+</head>
+
+<body>
+    <h1>Checkout</h1>
+    <section aria-labelledby="cart">
+        <h2 id="cart">Your Cart</h2>
+        <table>
+            <thead>
+                <th scope="col">Item Number</th>
+                <th scope="col">Item Name</th>
+                <th scope="col">Item Image</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Cost</th>
+            </thead>
+            <tbody>
+                <td>1</td>
+                <td>Rubik's Cube</td>
+                <td><img src="https://cdn.freecodecamp.org/curriculum/labs/cube.jpg" alt="A Rubik's Cube Puzzle."></td>
+                <td>1</td>
+                <td>$5.00</td>
+            </tbody>
+            <tfoot>
+                <th scope="row" colspan="4">Total:</th>
+                <td>$5.00</td>
+            </tfoot>
+        </table>
+    </section>
+
+    <section aria-labelledby="pay-info">
+        <h2 id="pay-info">Payment Information</h2>
+        <form>
+            <fieldset>
+                <legend>Personal Information</legend>
+                <label for="card-name">
+                    Your Name<span aria-hidden="true">*</span>
+                </label>
+                <input required id="card-name" name="card-name" type="text" placeholder="John Doe">
+            </fieldset>
+
+            <fieldset>
+                <legend>Billing Information</legend>
+                <label for="card-number">
+                    Your Card Number<span aria-hidden="true">*</span>
+                </label>
+                <input required id="card-number" name="card-number" type="text" placeholder="1111 2222 3333 4444" aria-describedby="card-number-help">
+                <p id="card-number-help">Enter card number in the format: '1111 2222 3333 4444'</p>
+            </fieldset>
+
+            <button aria-label="Submit" type="submit">Submit and Pay</button>
+        </form>
+    </section>
+</body>
+
+</html>

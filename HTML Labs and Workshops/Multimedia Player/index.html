@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multimedia Player</title>
+</head>
+
+<body>
+    <h1>Multimedia Player</h1>
+
+    <!--TODO: Add audio title and description-->
+    <section>
+        <h2>Audio Title</h2>
+        <audio
+            aria-label="Audio Description"
+            controls
+        >
+            <source
+                src="https://cdn.freecodecamp.org/curriculum/js-music-player/sailing-away.mp3"
+                type="audio/mp3"
+            >
+        </audio>
+    </section>
+
+    <!--TODO: Write captions.vtt-->
+    <section>
+        <h2>What is the map method and how does it work?</h2>
+        <video
+            aria-label="What is the map method and how does it work?"
+            controls
+            width="360"
+        >
+            <source
+                src="https://cdn.freecodecamp.org/curriculum/labs/what-is-the-map-method-and-how-does-it-work.mp4"
+                type="video/mp4"
+            >
+            <track
+                src="./captions.vtt"
+                kind="captions"
+                srclang="en"
+                label="English"
+            >
+        </video>
+    </section>
+
+    <!--TODO: Write transcript-->
+    <section>
+        <h2>Video Transcript</h2>
+        <p>lorem ipsum</p>
+    </section>
+</body>
+
+</html>
