@@ -356,6 +356,326 @@ This ensures elements stay within desired size ranges, regardless of standard `w
 
 #### CSS Combinators
 
+CSS combinators are used to define the relationship between selectors in CSS. They help in selecting elements based on their relationship to other elements, which allows for more precise and efficient styling.
+
+We will discuss some primary CSS combinators and their use cases, starting with the descendant combinator.
+
+A descendant combinator is used to target elements matched by the second selector if they are nested within an ancestor element that matches the first selector. An ancestor can be a parent element or a parent's parent.
+
+To better understand how this works, let's take a look at an example.
+
+```html
+<link rel="stylesheet" href="styles.css">
+
+<figure>
+  <img src="https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg" alt="Relaxing Cat">
+  <figcaption>A relaxing cat with a border</figcaption>
+</figure>
+```
+
+```css
+figure img {
+  border: 4px solid red;
+}
+```
+
+In the above example, we use the descendant combinator to select all image elements inside figure elements and apply a solid red border on all four sides.
+
+Note that a `space` is used between the parent and child selector.
+
+In this case, the `figure` would be the parent and the img would be the child.
+
+If you had multiple images inside a `figure` element, using the descendant combinator would be a good way to apply a solid black border around each of those images.
+
+Another type of combinator would be the child combinator.
+
+The child combinator (`>`) in CSS is used to select elements that are direct children of a specified parent element.
+
+This combinator targets only elements with a specific parent, making your CSS rules more precise and preventing unintended styling of deeper nested elements.
+
+Let's take a look at the following HTML example:
+
+```html
+<div class="container">
+  <p>First</p>
+  <div>
+    <p>Second</p>
+  </div>
+  <div>
+    <p>Third</p>
+  </div>
+</div>
+```
+
+In above HTML structure, the `container` class is applied to a `div` element.
+
+Inside this container, there is a direct child `p` element ("First"), followed by two additional `div` elements, each containing a `p` element ("Second" and "Third").
+
+The first `p` element is a direct child of the `.container` element, while the other two `p` elements are nested inside other `div` elements, making them deeper descendants.
+
+To apply styles to just the direct child of the `container` class, you can use the child combinator like this:
+
+```html
+<link rel="stylesheet" href="styles.css">
+
+<div class="container">
+  <p>First</p>
+  <div>
+    <p>Second</p>
+  </div>
+  <div>
+    <p>Third</p>
+  </div>
+</div>
+```
+
+---
+
+```css
+.container > p {
+  color: blue;
+}
+```
+
+In the above example, we are only targeting the direct child of `container` class. This will give the direct child the text color of blue.
+
+Because the other two paragraph elements are nested inside `div` elements, they are not considered direct children of the container class and will not get the text color of blue.
+
+Another common combinator would be the next-sibling combinator.
+
+The next-sibling combinator (`+`) in CSS selects an element that immediately follows a specified sibling element. This combinator is useful when you want to apply styles to an element that directly follows another element, allowing for targeted styling based on the element's position relative to its siblings.
+
+Let's take a look at the following HTML example:
+
+```html
+<figure>
+  <img
+    src="https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg"
+    alt="A cute orange cat lying on its back."
+  />
+  <figcaption>A cute orange cat lying on its back.</figcaption>
+</figure>
+```
+
+Here, we have a `figure` element containing an `img` element followed by a `figcaption` element. The `figcaption` element is the immediate sibling of the `img` element.
+
+If you wanted to apply a black border around the `figcaption` element, you can use the next-sibling combinator like this:
+
+```html
+<link rel="stylesheet" href="styles.css">
+
+<figure>
+  <img
+    src="https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg"
+    alt="A cute orange cat lying on its back."
+  />
+  <figcaption>A cute orange cat lying on its back.</figcaption>
+</figure>
+```
+
+---
+
+```css
+img + figcaption {
+  border: 4px solid black;
+}
+```
+
+In this example, the next-sibling combinator (`+`) selects the `figcaption` element that immediately follows the `img` element. The applied CSS rule adds a `4px` `solid` `black` `border` around the `figcaption`.
+
+Another common combinator is the subsequent-sibling combinator.
+
+The subsequent-sibling combinator (`~`) in CSS selects all siblings of a specified element that come after it.
+
+Unlike the next-sibling combinator, which targets only the immediately following sibling, the subsequent-sibling combinator (`~`) can target any siblings that follow the specified element, offering greater flexibility in styling.
+
+Let's take a look at the following HTML example:
+
+```html
+<div class="container">
+  <h2>Subheading</h2>
+  <p>First paragraph.</p>
+  <p>Second paragraph.</p>
+  <p>Third paragraph.</p>
+  <p>Another paragraph element</p>
+</div>
+```
+
+In this HTML structure, we have an `h2` element followed by four paragraph elements. The paragraph elements are siblings of the `h2` element.
+
+If you want to style all of the paragraph elements that come after the `h2` element, then you can use the subsequent-sibling combinator like this:
+
+```html
+<link rel="stylesheet" href="styles.css">
+
+<div class="container">
+  <h2>Subheading</h2>
+  <p>First paragraph.</p>
+  <p>Second paragraph.</p>
+  <p>Third paragraph.</p>
+  <p>Another paragraph element</p>
+</div>
+```
+
+---
+
+```css
+h2 ~ p {
+  color: green;
+}
+```
+
+In this example, all paragraph elements following the `h2` element will have the text color green.
+
+The subsequent-sibling combinator (`~`) targets all paragraph siblings that appear after the `h2` element, regardless of whether they are immediate siblings.
+
+In conclusion, understanding and using various CSS combinators allows you to apply precise styles to your HTML elements, enhancing the control and flexibility of your design.
+
+By mastering these selectors, you can create more sophisticated and targeted styling rules that improve both the appearance and functionality of your web pages.
+
+#### Inline and Block-Level Elements
+
+In HTML and CSS, elements are classified as either inline elements or block-level elements, and this classification dictates how they behave in the document layout.
+
+Understanding this difference is crucial for controlling how your content is displayed on a webpage.
+
+Block-level elements are elements that take up the full width available to them by default, stretching across the width of their container.
+
+These elements always start on a new line and push other content to the next line, creating a "block" of content.
+
+Block-level elements have the CSS property `display: block;` applied by default. This property ensures that the element stretches to fill the container's width and appears on a new line.
+
+Some common block-level elements are `div` elements, paragraphs, headings, ordered lists, unordered lists, and section elements.
+
+Here is a code example of a block-level element:
+
+```html
+<p style="border: 2px solid red;">
+  First paragraph
+</p>
+<p>Second paragraph</p>
+```
+
+In this example, we have two paragraph elements where the first one has a red border around it.
+
+The two paragraph elements do not share the same line because they are block level elements by default.
+
+So, both paragraph elements will take up the full width of its container, which in this case is the `body` element.
+
+Block-level elements are ideal when you want content to stack vertically, such as paragraphs, sections, or larger blocks of content. They're commonly used to define the layout and structure of a webpage.
+
+Inline elements, unlike block-level elements, only take up as much width as they need and do not start on a new line. These elements flow within the content, allowing text and other inline elements to appear alongside them.
+
+Inline elements have the CSS property `display: inline;` applied by default. This property ensures that the element remains within the flow of the content and does not break onto a new line.
+
+Common inline elements are `span`, `anchor`, and `img` elements.
+
+Here's an example to better understand inline elements:
+
+```html
+<p>This is a
+  <span style="color: red; border: 2px solid green;">red</span>
+  word inside a paragraph.
+</p>
+```
+
+In this example, we have a `span` element nested inside of a paragraph element. The `span` element has a `red` text color with a `green` border around it so you can see the highlighted word better.
+
+As you can see, the `span` element only takes up as much space as the word "red" and does not push the following content to a new line.
+
+Inline elements are best used for styling smaller portions of text or content within a line, such as emphasizing a word, creating hyperlinks, or applying specific styles to parts of a paragraph.
+
+#### Inline-Block
+
+When working with CSS, you often encounter three different types of display behaviors for elements: `inline`, `block`, and `inline-block`.
+
+Each of these properties affects how elements are positioned and how they interact with other elements on the page.
+
+In this lesson, we will focus on how the `inline-block` property works and how it differs from both inline and block-level elements.
+
+Block-level elements behave like large containers or "blocks" that take up the full width of their parent container. They always start on a new line, and their height and width can be adjusted.
+
+Inline elements only take up as much space as they need. They flow within the surrounding content and do not break onto a new line.
+
+The `inline-block` property is a hybrid of these two behaviors. Like `inline` elements, `inline-block` elements remain in the text flow without starting on a new line.
+
+However, unlike `inline` elements, you can adjust the width and height of an `inline-block` element, just as you would with block-level elements.
+
+In short, the key difference between `inline` and `inline-block` is that `inline` elements cannot have their size controlled, whereas `inline-block` elements allow for full control over dimensions while still staying inline with other content.
+
+Let's take a look at an example.
+
+```html
+<link href="styles.css" rel="stylesheet">
+
+<div class="container">
+  <span class="inline-block-element element1">Inline-Block Element 1</span>
+  <span class="inline-block-element element2">Inline-Block Element 2</span>
+</div>
+```
+
+---
+
+```css
+.inline-block-element {
+  display: inline-block;
+  width: 150px;
+  height: 100px;
+}
+
+.element1 {
+  background-color: lightblue;
+}
+
+.element2 {
+  background-color: lightgreen;
+}
+```
+
+In the above example, we have a `div` with a class of `container`. Inside that `div` element, we have two `span` elements.
+
+Each of the span elements is set to `display:inline-block` and has a width and height set as well.
+
+The inline-block elements will appear side by side because they behave like inline elements, but they also have a specified width and height, which gives them block-like properties.
+
+But, if you remove the `display: inline-block` property, neither the `height` nor the `width` will be applied even though you defined it clearly.
+
+Here is the revised CSS:
+
+```html
+<link href="styles.css" rel="stylesheet">
+
+<div class="container">
+  <span class="inline-block-element element1">Inline-Block Element 1</span>
+  <span class="inline-block-element element2">Inline-Block Element 2</span>
+</div>
+```
+
+---
+
+```css
+.inline-block-element {
+  width: 150px;
+  height: 100px;
+}
+
+.element1 {
+  background-color: lightblue;
+}
+
+.element2 {
+  background-color: lightgreen;
+}
+```
+
+In this code, we removed the `display: inline-block;` property but kept everything else intact. Here, the sp`an elements revert to their default behavior as inline elements.
+
+As a result, the specified width and height are ignored, and the elements only take up the space needed for their content.
+
+Understanding how `inline-block` works is useful because you can use it for creating layouts that require both alignment and dimension control within a continuous text flow.
+
+#### Margins and Padding
+
 
 
 ---
